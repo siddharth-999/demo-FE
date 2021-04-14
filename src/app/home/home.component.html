@@ -1,0 +1,13 @@
+<select (change)="onChange($event)">
+    <option [value]="relation.id" *ngFor="let relation of data"> 
+    {{relation.relation}}</option>
+</select>
+<hr>
+<table class="table">
+    <td>First Name</td>
+    <td>Last Name</td>
+    <tr *ngFor="let relative of relative_data">
+      <td>{{ relative.relative.first_name}}</td>
+      <td>{{ relative.relative.last_name}}</td>
+      <button class="primary" (click)="onDelete(relative.id, relative.relation)">Delete</button>
+ </table>
