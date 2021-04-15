@@ -45,9 +45,7 @@ export class HomeComponent implements OnInit {
     this.authenticationService.deleterelative(id).subscribe(
       resdata => {
         console.log("delete successfully")
-        console.log(this.fval.relative.value,
-          this.fval.relations.value,"ewsffs")
-          this.onSubmit()
+          this.onSubmit();
       },
       error => {
         console.log("delete fail:::", error)
@@ -89,7 +87,6 @@ export class HomeComponent implements OnInit {
        this.fval.relations.value).subscribe((res: any) => {
       if (res) {
         this.relative_data = res;
-        this.show = !this.show;
         console.log(res)
       }
     }, err => {
