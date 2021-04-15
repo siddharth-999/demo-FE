@@ -41,7 +41,7 @@ export class HomeComponent implements OnInit {
 
   get fval() { return this.familyForm.controls; }
 
-  onDelete = (id: number, id2: number) => {
+  onDelete = (id: number) => {
     this.authenticationService.deleterelative(id).subscribe(
       resdata => {
         console.log("delete successfully")
