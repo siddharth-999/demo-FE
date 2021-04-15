@@ -38,9 +38,8 @@ export class HomeComponent implements OnInit {
       relations : ''
     });
   }
+
   get fval() { return this.familyForm.controls; }
-
-
 
   onDelete = (id: number, id2: number) => {
     this.authenticationService.deleterelative(id).subscribe(
