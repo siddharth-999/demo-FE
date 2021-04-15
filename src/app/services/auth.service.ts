@@ -62,4 +62,15 @@ export class AuthService {
                 return data
             }));
     }
+      updaterelation(id: number,relation : number) {
+        const token = localStorage.getItem('currentUser');
+        return this.http.patch<any>(`${API_BASE_URL}/family/family_relative/${id}/`,{relation: relation},{
+            headers: token ? { 
+                Authorization: `token ${token}`
+            } : null
+        })
+            .pipe(map(data => {
+                return data
+            }));
+    }
 }
