@@ -10,4 +10,11 @@
       <td>{{ relative.relative.first_name}}</td>
       <td>{{ relative.relative.last_name}}</td>
       <button class="primary" (click)="onDelete(relative.id, relative.relation)">Delete</button>
+      <button class="primary" (click)="confirmDelete()">Edit</button>
+      <ng-container *ngIf="show">
+        <select (click)="onUpdate($event, relative.id, relative.relation)">
+            <option [value]="relation.id" *ngFor="let relation of data"> 
+            {{relation.relation}}</option>
+        </select>
+    </ng-container>
  </table>
