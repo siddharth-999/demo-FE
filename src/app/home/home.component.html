@@ -1,7 +1,24 @@
-<select (change)="onChange($event)">
-    <option [value]="relation.id" *ngFor="let relation of data"> 
+<form [formGroup]="familyForm" (ngSubmit)="onSubmit()">
+  <div>
+    <label>User</label>
+      <select formControlName="relative">
+    <option  [value]="user.id" *ngFor="let user of user_data"> 
+    {{user.first_name}} {{user.last_name}} 
+    </option>
+</select>
+  </div>
+  <div>
+    <label>Relation</label>
+      <select formControlName="relations">
+    <option  [value]="relation.id" *ngFor="let relation of data"> 
     {{relation.relation}}</option>
 </select>
+  </div>
+  <div>
+    <button class="primary">Find</button>
+  </div>
+</form>
+
 <hr>
 <table class="table">
     <td>First Name</td>

@@ -40,9 +40,9 @@ export class AuthService {
                 return data
             }));
     }
-    relative(id: number) {
+    relative(relative: number, relation: number, ) {
         const token = localStorage.getItem('currentUser');
-        return this.http.get<any>(`${API_BASE_URL}/family/family_relative/?relation=${id}`,{
+        return this.http.get<any>(`${API_BASE_URL}/family/family_relative/?relation=${relation}&added_by=${relative}`,{
             headers: token ? { 
                 Authorization: `token ${token}`
             } : null
@@ -65,6 +65,17 @@ export class AuthService {
       updaterelation(id: number,relation : number) {
         const token = localStorage.getItem('currentUser');
         return this.http.patch<any>(`${API_BASE_URL}/family/family_relative/${id}/`,{relation: relation},{
+            headers: token ? { 
+                Authorization: `token ${token}`
+            } : null
+        })
+            .pipe(map(data => {
+                return data
+            }));
+    }
+    userlist() {
+        const token = localStorage.getItem('currentUser');
+        return this.http.get<any>(`${API_BASE_URL}/family/family_member/`,{
             headers: token ? { 
                 Authorization: `token ${token}`
             } : null
