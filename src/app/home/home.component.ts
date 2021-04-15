@@ -84,6 +84,7 @@ export class HomeComponent implements OnInit {
   }
 
   onSubmit(){
+    if (this.fval.relative.value && this.fval.relations.value){
     this.authenticationService.relative(this.fval.relative.value,
        this.fval.relations.value).subscribe((res: any) => {
       if (res) {
@@ -94,5 +95,7 @@ export class HomeComponent implements OnInit {
     }, err => {
       console.log(err);
     });
+  }
+  return;
   }
 }
