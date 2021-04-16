@@ -26,8 +26,8 @@
     <tr *ngFor="let relative of relative_data">
       <td>{{ relative.relative.first_name}}</td>
       <td>{{ relative.relative.last_name}}</td>
-      <button class="primary" (click)="onDelete(relative.id)">Delete</button>
-      <button class="primary" (click)="confirmDelete()">Edit</button>
+      <button class="primary" (click)="onDelete(relative.id, relative.added_by)">Delete</button>
+      <button class="primary" (click)="confirmEdit(relative.added_by)">Edit</button>
       <ng-container *ngIf="show">
         <select>
             <option (click)="onUpdate($event, relative.id, relative.relation)"
