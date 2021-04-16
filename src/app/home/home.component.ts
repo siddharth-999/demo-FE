@@ -41,7 +41,10 @@ export class HomeComponent implements OnInit {
 
   get fval() { return this.familyForm.controls; }
 
-  onDelete = (id: number) => {
+  onDelete = (id: number, id2: number) => {
+    if (id2 != Number(localStorage.getItem("userId"))){
+      return;
+    }
     this.authenticationService.deleterelative(id).subscribe(
       resdata => {
         console.log("delete successfully")
@@ -53,7 +56,10 @@ export class HomeComponent implements OnInit {
     )
   };
 
-  confirmDelete() {
+  confirmEdit(id: number) {
+    if (id != Number(localStorage.getItem("userId"))){
+      return;
+    }
     this.show = !this.show;
     if (this.show) {
       this.Edit = "Hide";
